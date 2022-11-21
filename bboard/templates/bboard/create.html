@@ -2,11 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>{{ current_rubric.name }} :: Bulletin Board</title>
+    <title>Add an Ad :: Bulletin Board</title>
   </head>
   <body>
-    <h1>Ads</h1>
-    <h2>Rubric: {{ current_rubric.name }}</h2>
+    <h1>Addition of an Ad</h1>
     <div>
       <a href="{% url 'index' %}">HomePage</a>
       <a href="{% url 'add' %}">Add</a>
@@ -14,12 +13,10 @@
       <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
       {% endfor %}
     </div>
-    {% for bb in bbs %}
-    <div>
-      <h2>{{ bb.title }}</h2>
-      <p>{{ bb.content }}</p>
-      <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
-    </div>
-    {% endfor %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Add">
+    </form>
   </body>
 </html>
