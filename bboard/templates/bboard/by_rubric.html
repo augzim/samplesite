@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>HomePage :: Bulletin Board</title>
+    <title>{{ current_rubric.name }} :: Bulletin Board</title>
   </head>
   <body>
     <h1>Ads</h1>
+    <h2>Rubric: {{ current_rubric.name }}</h2>
     <div>
       <a href="/bboard/">HomePage</a>
       {% for rubric in rubrics %}
@@ -16,7 +17,6 @@
     <div>
       <h2>{{ bb.title }}</h2>
       <p>{{ bb.content }}</p>
-      <p><a href="/bboard/{{ bb.rubric.pk }}/">{{ bb.rubric.name }}</a></p>
       <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
     </div>
     {% endfor %}
