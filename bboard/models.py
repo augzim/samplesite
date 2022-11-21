@@ -6,7 +6,8 @@ class Bb(models.Model):
     content = models.TextField(null=True, blank=True, verbose_name='description')
     price = models.FloatField(null=True, blank=True, verbose_name='price')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='published')
-    rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name='Rubric')
+    rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT,
+                               verbose_name='Rubric')
 
     class Meta:
         verbose_name_plural = 'ads'
